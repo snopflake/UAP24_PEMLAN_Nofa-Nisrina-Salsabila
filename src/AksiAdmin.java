@@ -27,8 +27,8 @@ public class AksiAdmin extends Aksi {
     public void lihatListFilm() {
         System.out.println("Daftar Film:");
         for (Film film : Film.getFilms().values()) {
-            System.out.println("Nama: " + film.getName() + "- Deskripsi: " + film.getDescription() +
-                    "- Harga: " + film.getPrice() + "- Stok: " + film.getStock());
+            System.out.println("Nama: " + film.getName() + " - Deskripsi: " + film.getDescription() +
+                    " - Harga: " + film.getPrice() + " - Stok: " + film.getStock());
         }
     }
 

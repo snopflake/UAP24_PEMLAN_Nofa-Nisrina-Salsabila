@@ -31,8 +31,8 @@ public class AksiUser extends Aksi {
     public void lihatListFilm() {
         System.out.println("Daftar Film:");
         for (Film film : Film.getFilms().values()) {
-            System.out.println("Nama: " + film.getName() + ", Deskripsi: " + film.getDescription() +
-                    ", Harga: " + film.getPrice() + ", Stok: " + film.getStock());
+            System.out.println("Nama: " + film.getName() + " - Deskripsi: " + film.getDescription() +
+                    " - Harga: " + film.getPrice() + " - Stok: " + film.getStock());
         }
     }
 
@@ -88,15 +88,23 @@ public class AksiUser extends Aksi {
     //INI METHOD LIHAT PESANAN (USER)
     public void lihatPesanan() {
         Map<String, Pesanan> pesanan = Akun.getCurrentUser().getPesanan();
-        //Jika user belum pernah beli (gapunya history)
+        // Jika user belum pernah beli (tidak punya riwayat)
         if (pesanan.isEmpty()) {
             System.out.println("Anda belum pernah memesan tiket.");
         } else {
-            //Jika user pernah beli
+            // Jika user pernah beli
             System.out.println("Daftar Pesanan:");
+            double totalHargaSemuaPesanan = 0;
             for (Pesanan p : pesanan.values()) {
-                System.out.println("Film: " + p.getFilm().getName() + ", Jumlah: " + p.getKuantitas());
+                String namaFilm = p.getFilm().getName();
+                int jumlah = p.getKuantitas();
+                double hargaPerTiket = p.getFilm().getPrice();
+                double totalHarga = jumlah * hargaPerTiket;
+                totalHargaSemuaPesanan += totalHarga;
+                System.out.println("Film: " + namaFilm + ", Jumlah: " + jumlah + ", Total Harga: " + totalHarga);
             }
+            System.out.println("Total Harga Semua Pesanan: " + totalHargaSemuaPesanan);
         }
     }
+    
 }
