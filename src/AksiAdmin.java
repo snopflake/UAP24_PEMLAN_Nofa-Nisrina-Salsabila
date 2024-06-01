@@ -25,6 +25,7 @@ public class AksiAdmin extends Aksi {
     //INI METHOD LIHAT FILM (ADMIN)
     @Override
     public void lihatListFilm() {
+        //Menampilkan daftar film
         System.out.println("Daftar Film:");
         for (Film film : Film.getFilms().values()) {
             System.out.println("Nama: " + film.getName() + " - Deskripsi: " + film.getDescription() +
@@ -35,6 +36,8 @@ public class AksiAdmin extends Aksi {
     //INI METHOD TAMBAH FILM (ADMIN)
     public void tambahFilm() {
         Scanner scanner = new Scanner(System.in);
+
+        //Sesi input buat si admin
         System.out.print("Nama Film: ");
         String nama = scanner.nextLine();
         System.out.print("Deskripsi Film: ");
@@ -45,6 +48,7 @@ public class AksiAdmin extends Aksi {
         int stok = scanner.nextInt();
         scanner.nextLine();
 
+        //Menambahkan film yang didaftarkan
         Film.addFilm(nama, deskripsi, harga, stok);
     }
 }
