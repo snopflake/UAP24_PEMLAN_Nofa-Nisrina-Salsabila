@@ -94,16 +94,13 @@ public class AksiUser extends Aksi {
         } else {
             // Jika user pernah beli
             System.out.println("Daftar Pesanan:");
-            double totalHargaSemuaPesanan = 0;
             for (Pesanan p : pesanan.values()) {
                 String namaFilm = p.getFilm().getName();
                 int jumlah = p.getKuantitas();
                 double hargaPerTiket = p.getFilm().getPrice();
                 double totalHarga = jumlah * hargaPerTiket;
-                totalHargaSemuaPesanan += totalHarga;
                 System.out.println("Film: " + namaFilm + ", Jumlah: " + jumlah + ", Total Harga: " + totalHarga);
             }
-            System.out.println("Total Harga Semua Pesanan: " + totalHargaSemuaPesanan);
         }
     }
     
